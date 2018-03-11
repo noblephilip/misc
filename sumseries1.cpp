@@ -7,21 +7,22 @@ using namespace std;
 	x --> x^1/1!
 */
 
-long factorial(int n);
-float sum(int x, int n);
+long factorial(int);
+float sum(int,int);
 
 int main()
 {	cout<<"Enter x and n:";
 	int x,n;
 	cin>>x>>n;
-	if(n>0)
+	if(n>0) //This checking is NOT  absolutely necessary
 		cout<<"Sum :"<<sum(x,n)<<endl;
 	else 
-		cout<<"Enter a positive vlaue for n"<<endl;
+		cout<<"Enter a positive value for n"<<endl;
 	return 0;
 }
 
-//function to find factorail 
+//function to find factorial 
+//this will be called from the sum function
 long factorial(int n)
 {	long fact = 1;
 	while(n>1)
@@ -30,9 +31,9 @@ long factorial(int n)
 }
 
 float sum(int x,int n)
-{	int counter = 1;
-	short sign = +1;
-	float sum = 0.0;
+{	int counter = 1; // to generate 1,3,5 ...
+	short sign = +1; // alternating sign 
+	float sum = 0.0; 
 	for(int i=0;i<n;++i)
 	{	sum += sign * (pow(x,counter)/factorial(counter));
 		sign *= -1;
